@@ -1,1 +1,16 @@
+```dart
+import 'myLib.dart';
 
+void main() {
+  Employee employee = Employee(
+    'John',
+    5000.0,
+    10.0,
+    7.0,
+  );
+
+  double totalSalary = employee.calculateTotalSalary();
+
+  print('Total Salary = \$${totalSalary.toStringAsFixed(1)} USD');
+}
+```
