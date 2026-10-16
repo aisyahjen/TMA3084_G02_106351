@@ -1,16 +1,8 @@
 class Employee {
-  String name;
-  double basicSalary;
-  double overtimeHours;
-  double overtimeRate;
+  late String jobTitle;
+  late String location;
+  late double salary;
+  late double overtimeHr;
 
-  Employee(this.name, this.basicSalary, this.overtimeHours, this.overtimeRate);
-
-  double calculateOvertimePay() {
-    return overtimeHours * overtimeRate;
-  }
-
-  double calculateTotalSalary() {
-    return basicSalary + calculateOvertimePay();
-  }
+  Employee(this.jobTitle, this.location, this.salary, this.overtimeHr);
 }

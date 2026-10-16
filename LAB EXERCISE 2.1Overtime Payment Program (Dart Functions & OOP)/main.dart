@@ -1,9 +1,13 @@
-import 'myLib.dart';
+import 'myLib.dart' as emp;
 
 void main() {
-  Employee employee = Employee('Aisyah', 5000.0, 7.0, 10.0);
-
-  double totalSalary = employee.calculateTotalSalary();
-
-  print('Total Salary = \$${totalSalary.toStringAsFixed(1)} USD');
+  double extraPayPerHr;
+  var william = emp.Employee('Manager', 'Madrid', 5000, 7);
+  if (william.salary >= 4000) {
+    extraPayPerHr = 10;
+  } else {
+    extraPayPerHr = 20;
+  }
+  double total = william.salary + (william.overtimeHr * extraPayPerHr);
+  print('Total Salary = \$$total USD');
 }
