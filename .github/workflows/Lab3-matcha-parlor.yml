@@ -1,0 +1,44 @@
+
+name: LAB 3 Matcha Parlor CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - "feature/Lab3-matcha-parlor"
+
+permissions:
+  contents: read
+
+jobs:
+  flutter-checks:
+    name: Flutter Analyze and Test
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: "LAB 3 Matcha Parlor"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze code
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
